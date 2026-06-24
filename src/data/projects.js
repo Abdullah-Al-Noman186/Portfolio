@@ -36,7 +36,7 @@ export const projects = [
     description:
       "StudyNook is a full-stack web application where students and library users can list private study rooms they control and any registered user can browse, search, filter, and book those rooms for a specific date and time slot. The platform automatically prevents double-booking through real-time time-conflict detection, gives room owners full control over their own listings, and provides every user a personal dashboard to manage their bookings — all secured with JWT authentication stored in HTTP-only cookies.",
 
-    image: "/library.PNG",
+    image: "/library.png",
 
     technologies: [
       "React",
