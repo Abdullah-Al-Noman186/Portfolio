@@ -39,7 +39,7 @@ export const projects = [
     image: "/library.png",
 
     technologies: [
-      "React",
+      "Next.js",
       "Node.js",
       "Express",
       "MongoDB",
@@ -50,6 +50,32 @@ export const projects = [
     liveLink: "https://studynook-client-delta.vercel.app/",
 
     githubLink: "https://github.com/Abdullah-Al-Noman186/studynook-client",
+
+    isUpcoming: false,
+  },
+
+  {
+    id: 3,
+
+    title: "SkillSphere",
+
+    description:
+      "SkillSphere — Online Learning Platform:A course discovery and learning platform built with Next.js App Router and BetterAuth, featuring protected dynamic routes with return-to-intended-page redirect after login, Google OAuth, and a live profile update flow. Includes curated sections for trending courses, top instructors, and course search.",
+
+    image: "/library.png",
+
+    technologies: [
+      "Next.js",
+      
+      
+      "MongoDB",
+      "BetterAuth",
+      "Tailwind",
+    ],
+
+    liveLink: "https://skillsphere-eight-gamma.vercel.app/",
+
+    githubLink: "https://github.com/Abdullah-Al-Noman186/skillsphere",
 
     isUpcoming: false,
   },
