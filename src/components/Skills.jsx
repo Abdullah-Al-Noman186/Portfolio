@@ -49,7 +49,7 @@ export default function Skills() {
         { name: "CSS", icon: FaCss3Alt, color: "#1572B6" },
         { name: "Tailwind", icon: SiTailwindcss, color: "#38BDF8" },
         { name: "JavaScript", icon: FaJs, color: "#F7DF1E" },
-        { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+        
         { name: "React", icon: FaReact, color: "#61DAFB" },
         { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
       ],

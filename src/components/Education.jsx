@@ -107,7 +107,7 @@ export default function Education() {
               "CSS",
               "Tailwind CSS",
               "JavaScript",
-              "TypeScript",
+              
               "React",
               "Next.js",
               "Node.js",
