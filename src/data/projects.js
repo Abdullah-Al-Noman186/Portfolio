@@ -62,7 +62,7 @@ export const projects = [
     description:
       "SkillSphere — Online Learning Platform:A course discovery and learning platform built with Next.js App Router and BetterAuth, featuring protected dynamic routes with return-to-intended-page redirect after login, Google OAuth, and a live profile update flow. Includes curated sections for trending courses, top instructors, and course search.",
 
-    image: "/library.png",
+    image: "/skillsphere.png",
 
     technologies: [
       "Next.js",
