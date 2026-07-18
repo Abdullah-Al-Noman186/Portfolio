@@ -49,9 +49,13 @@ export default function Skills() {
         { name: "CSS", icon: FaCss3Alt, color: "#1572B6" },
         { name: "Tailwind", icon: SiTailwindcss, color: "#38BDF8" },
         { name: "JavaScript", icon: FaJs, color: "#F7DF1E" },
-        
+        { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
         { name: "React", icon: FaReact, color: "#61DAFB" },
         { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
+        { name: "Responsive Design", icon: FaReact, color: "#F7DF1E" },
+        { name: "UI/UX Design", icon: FaReact, color: "#61DAFB" },
+        { name: "Cross-Browser Compatibility", icon: FaReact, color: "#3178C6" },
+        { name: "Performance Optimization", icon: FaReact, color: "#38BDF8" },
       ],
     },
     {
@@ -61,6 +65,10 @@ export default function Skills() {
         { name: "Express.js", icon: SiExpress, color: "#ffffff" },
         { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
         { name: "Mongoose", icon: SiMongoose, color: "#880000" },
+        { name: "Firebase", icon: FaReact, color: "#FFCA28" },
+        { name: "JWT", icon: FaReact, color: "#F7DF1E" },
+        { name: "Stripe", icon: FaReact, color: "#635BFF" },
+        { name: "AI Integration", icon: SiOpenai, color: "#10A37F" }
       ],
     },
     {
@@ -70,6 +78,7 @@ export default function Skills() {
         { name: "GitHub", icon: FaGithub, color: "#ffffff" },
         { name: "BetterAuth", icon: SiNextdotjs, color: "#00D4FF" },
         { name: "AI Coding", icon: SiOpenai, color: "#10A37F" },
+        
       ],
     },
   ];

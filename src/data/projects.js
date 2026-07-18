@@ -54,30 +54,32 @@ export const projects = [
     isUpcoming: false,
   },
 
+  
   {
-    id: 3,
+    id: 4,
 
-    title: "SkillSphere",
+    title: "LearnHub",
 
     description:
-      "SkillSphere — Online Learning Platform:A course discovery and learning platform built with Next.js App Router and BetterAuth, featuring protected dynamic routes with return-to-intended-page redirect after login, Google OAuth, and a live profile update flow. Includes curated sections for trending courses, top instructors, and course search.",
+      "LearnHub is a full-stack MERN online learning platform that allows users to browse, search, and filter courses, view course details, and enroll in courses. It features a secure authentication system with JWT stored in HTTP-only cookies, role-based dashboards for students and instructors, and a Stripe-powered payment system for course enrollment.",
 
-    image: "/skillsphere.png",
+    image: "/Learnhub.png",
 
     technologies: [
-      "Next.js",
-      
-      
+      "React",
+      "Node.js",
+      "Express",
       "MongoDB",
-      "BetterAuth",
+      "Mongoose",
       "Tailwind",
+      "TypeScript",
     ],
 
-    liveLink: "https://skillsphere-eight-gamma.vercel.app/",
+    liveLink: "https://learnhub-client-gray.vercel.app/",
 
-    githubLink: "https://github.com/Abdullah-Al-Noman186/skillsphere",
+    githubLink: "https://github.com/Abdullah-Al-Noman186/Learnhub-client",
 
     isUpcoming: false,
-  },
+  }
 
 ]

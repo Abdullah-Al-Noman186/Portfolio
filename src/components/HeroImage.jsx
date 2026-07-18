@@ -58,7 +58,7 @@ export default function HeroImage() {
 
             {/* IMAGE */}
             <img
-              src="/k.jpeg" // 👉 replace with your image
+              src="/noman.png" // 👉 replace with your image
               alt="Profile"
               className="w-full h-full object-cover scale-110 hover:scale-115 transition duration-700"
             />

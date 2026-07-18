@@ -5,8 +5,9 @@ import { projects } from "@/data/projects";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const container = {
-  hidden: {},
+  hidden: { opacity: 0 },
   show: {
+    opacity: 1,
     transition: {
       staggerChildren: 0.12,
     },
@@ -14,11 +15,10 @@ const container = {
 };
 
 const item = {
-  hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
+  hidden: { opacity: 0, y: 30 },
   show: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: 0.6, ease: "easeOut" },
   },
 };
@@ -29,132 +29,138 @@ export default function Projects() {
       id="projects"
       className="relative py-28 bg-slate-950 text-white overflow-hidden"
     >
-      {/* 🌌 Background glow */}
-      <div className="absolute inset-0">
-        <div className="absolute w-[500px] h-[500px] bg-cyan-500/10 blur-[140px] rounded-full top-[-120px] left-[-120px]" />
-        <div className="absolute w-[400px] h-[400px] bg-blue-500/10 blur-[140px] rounded-full bottom-[-120px] right-[-120px]" />
+      {/* Background Glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute w-[600px] h-[600px] bg-indigo-500/10 blur-[140px] rounded-full top-[-200px] left-[-200px]" />
+        <div className="absolute w-[500px] h-[500px] bg-purple-500/10 blur-[140px] rounded-full bottom-[-150px] right-[-150px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-
-        {/* HEADER */}
+      <div className="relative max-w-6xl mx-auto px-6 lg:px-8 z-10">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          className="mb-16"
         >
-          <p className="text-cyan-400 uppercase tracking-[0.4em] font-semibold text-sm">
-            Portfolio
-          </p>
-
-          <h2 className="text-4xl md:text-5xl font-bold mt-4">
-            Featured Projects
+          <div className="flex items-center gap-4 mb-4">
+            <span className="w-12 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400" />
+            <span className="text-indigo-400 font-semibold text-sm tracking-[0.3em] uppercase">
+              Portfolio
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+            Featured <br className="sm:hidden" />
+            <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+              Projects
+            </span>
           </h2>
-
-          <p className="text-gray-400 max-w-2xl mx-auto mt-6 leading-7">
+          <p className="text-slate-400 max-w-xl mt-4 text-lg leading-relaxed">
             Real-world full stack applications built with modern architecture,
-            clean UI systems and scalable backend logic.
+            clean UI systems, and scalable backend logic.
           </p>
         </motion.div>
 
-        {/* GRID */}
+        {/* Projects Grid */}
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
-          className="grid md:grid-cols-2 xl:grid-cols-3 gap-10"
+          className="grid md:grid-cols-2 gap-8"
         >
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project.id}
               variants={item}
-              whileHover={{ y: -10, scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 200, damping: 18 }}
-              className="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl shadow-xl"
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="group relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-indigo-500/10 transition-shadow duration-300"
             >
-              {/* glow overlay */}
-              <div className="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition duration-300" />
+              <div className="flex flex-col h-full">
+                {/* Image Area */}
+                <div className="relative overflow-hidden h-52 md:h-56">
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-slate-800/50 text-slate-500">
+                      Project Preview
+                    </div>
+                  )}
 
-              {/* IMAGE */}
-              <div className="relative overflow-hidden h-56">
-                {project.image ? (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition duration-700 group-hover:scale-110 group-hover:rotate-1"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-slate-800 text-gray-500">
-                    Project Preview
-                  </div>
-                )}
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                {/* badge */}
-                {project.isUpcoming && (
-                  <span className="absolute top-4 right-4 bg-purple-600/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold">
-                    Coming Soon
-                  </span>
-                )}
-
-                {/* overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
-              </div>
-
-              {/* CONTENT */}
-              <div className="p-6 relative">
-
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-cyan-400 transition">
-                  {project.title}
-                </h3>
-
-                <p className="text-gray-400 leading-7 mb-6">
-                  {project.description}
-                </p>
-
-                {/* TECH STACK */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech, i) => (
-                    <motion.span
-                      key={tech}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.05 }}
-                      className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-sm hover:bg-cyan-500 hover:text-white transition"
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
+                  {/* Badge */}
+                  {project.isUpcoming && (
+                    <span className="absolute top-4 right-4 bg-purple-600/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold tracking-wide">
+                      Coming Soon
+                    </span>
+                  )}
                 </div>
 
-                {/* BUTTONS */}
-                {!project.isUpcoming ? (
-                  <div className="flex gap-4">
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      className="flex-1 flex justify-center items-center gap-2 bg-cyan-500 hover:bg-cyan-400 transition rounded-lg py-3 font-semibold"
-                    >
-                      <FaExternalLinkAlt />
-                      Live
-                    </a>
+                {/* Content */}
+                <div className="flex-1 flex flex-col p-6">
+                  <h3 className="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors duration-300">
+                    {project.title}
+                  </h3>
 
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      className="flex-1 flex justify-center items-center gap-2 border border-white/10 hover:border-cyan-500 hover:text-cyan-400 transition rounded-lg py-3"
-                    >
-                      <FaGithub />
-                      Code
-                    </a>
+                  <p className="text-slate-400 text-sm leading-relaxed mt-2 flex-1">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {project.technologies.slice(0, 4).map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 4 && (
+                      <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-slate-400">
+                        +{project.technologies.length - 4}
+                      </span>
+                    )}
                   </div>
-                ) : (
-                  <div className="text-center text-purple-400 font-semibold">
-                    🚀 In Development
+
+                  {/* Buttons or Status */}
+                  <div className="mt-6 pt-4 border-t border-white/10">
+                    {!project.isUpcoming ? (
+                      <div className="flex gap-3">
+                        <a
+                          href={project.liveLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-medium py-2.5 rounded-xl transition-all duration-300"
+                        >
+                          <FaExternalLinkAlt size={14} />
+                          Live Demo
+                        </a>
+                        <a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 flex items-center justify-center gap-2 border border-white/10 hover:border-indigo-400 hover:text-indigo-400 text-slate-300 font-medium py-2.5 rounded-xl transition-all duration-300"
+                        >
+                          <FaGithub size={14} />
+                          Source
+                        </a>
+                      </div>
+                    ) : (
+                      <div className="text-center text-purple-400 font-medium">
+                        🚀 In Development
+                      </div>
+                    )}
                   </div>
-                )}
+                </div>
               </div>
             </motion.div>
           ))}

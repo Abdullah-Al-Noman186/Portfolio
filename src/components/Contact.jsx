@@ -7,23 +7,24 @@ import {
   FaGithub,
   FaLinkedin,
   FaMapMarkerAlt,
+  FaPaperPlane,
 } from "react-icons/fa";
 
 const container = {
-  hidden: {},
+  hidden: { opacity: 0 },
   show: {
+    opacity: 1,
     transition: {
-      staggerChildren: 0.12,
+      staggerChildren: 0.15,
     },
   },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+  hidden: { opacity: 0, y: 30 },
   show: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: 0.6, ease: "easeOut" },
   },
 };
@@ -61,180 +62,217 @@ export default function Contact() {
       id="contact"
       className="relative py-28 bg-slate-950 text-white overflow-hidden"
     >
-      {/* 🌌 Background glow */}
-      <div className="absolute inset-0">
-        <div className="absolute w-[500px] h-[500px] bg-cyan-500/10 blur-[140px] rounded-full top-[-120px] left-[-120px]" />
-        <div className="absolute w-[400px] h-[400px] bg-blue-500/10 blur-[140px] rounded-full bottom-[-120px] right-[-120px]" />
+      {/* Background Glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute w-[600px] h-[600px] bg-indigo-500/10 blur-[140px] rounded-full top-[-200px] left-[-200px]" />
+        <div className="absolute w-[500px] h-[500px] bg-purple-500/10 blur-[140px] rounded-full bottom-[-150px] right-[-150px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-
-        {/* HEADER */}
+      <div className="relative max-w-6xl mx-auto px-6 lg:px-8 z-10">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="text-center mb-20"
+          className="mb-16"
         >
-          <p className="text-cyan-400 uppercase tracking-[0.4em] font-semibold text-sm">
-            Contact
-          </p>
-
-          <h2 className="text-4xl md:text-5xl font-bold mt-4">
-            Let's Build Something Amazing
+          <div className="flex items-center gap-4 mb-4">
+            <span className="w-12 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400" />
+            <span className="text-indigo-400 font-semibold text-sm tracking-[0.3em] uppercase">
+              Contact
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+            Let's Build Something <br className="sm:hidden" />
+            <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+              Amazing
+            </span>
           </h2>
-
-          <p className="text-gray-400 max-w-2xl mx-auto mt-6 leading-7">
-            I'm open to internships, freelance projects and full-stack roles.
-            Feel free to reach out anytime.
+          <p className="text-slate-400 max-w-xl mt-4 text-lg leading-relaxed">
+            I'm open to internships, freelance projects, and full‑stack roles.
+            Reach out, and let's start a conversation.
           </p>
         </motion.div>
 
-        {/* GRID */}
+        {/* Main Grid */}
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid lg:grid-cols-2 gap-12"
+          viewport={{ once: true, amount: 0.15 }}
+          className="grid lg:grid-cols-12 gap-8 lg:gap-12"
         >
-
-          {/* LEFT SIDE */}
+          {/* Left Column – Contact Info */}
           <motion.div
             variants={item}
-            className="relative rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 shadow-xl"
+            className="lg:col-span-5 space-y-8"
           >
-            <h3 className="text-2xl font-bold mb-8 text-cyan-400">
-              Contact Information
-            </h3>
+            {/* Contact Card */}
+            <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
+              <h3 className="text-xl font-semibold text-white mb-8">Get in Touch</h3>
 
-            {/* EMAIL */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="flex items-center gap-4 mb-6"
-            >
-              <div className="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-400">
-                <FaEnvelope />
+              {/* Email */}
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-11 h-11 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-400 flex-shrink-0">
+                  <FaEnvelope size={18} />
+                </div>
+                <div>
+                  <p className="text-slate-500 text-sm uppercase tracking-wider">Email</p>
+                  <p className="text-white font-medium">nabdullahal273@gmail.com</p>
+                </div>
               </div>
-              <div>
-                <p className="text-gray-400 text-sm">Email</p>
-                <p className="font-semibold">nabdullahal273@gmail.com</p>
-              </div>
-            </motion.div>
 
-            {/* LOCATION */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="flex items-center gap-4 mb-8"
-            >
-              <div className="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-400">
-                <FaMapMarkerAlt />
+              {/* Location */}
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-400 flex-shrink-0">
+                  <FaMapMarkerAlt size={18} />
+                </div>
+                <div>
+                  <p className="text-slate-500 text-sm uppercase tracking-wider">Location</p>
+                  <p className="text-white font-medium">Bangladesh</p>
+                </div>
               </div>
-              <div>
-                <p className="text-gray-400 text-sm">Location</p>
-                <p className="font-semibold">Bangladesh</p>
-              </div>
-            </motion.div>
-
-            {/* SOCIALS */}
-            <div className="flex gap-5 mb-10">
-              <a
-                href="https://github.com/Abdullah-Al-Noman186"
-                className="w-12 h-12 rounded-lg bg-white/5 hover:bg-cyan-500 transition flex items-center justify-center hover:scale-110"
-              >
-                <FaGithub />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/abdullah-al-noman-14a2a73b6/"
-                className="w-12 h-12 rounded-lg bg-white/5 hover:bg-cyan-500 transition flex items-center justify-center hover:scale-110"
-              >
-                <FaLinkedin />
-              </a>
             </div>
 
-            {/* STATUS BOX */}
-            <div className="rounded-xl bg-cyan-500/10 border border-cyan-500/20 p-5">
-              <p className="text-cyan-400 font-semibold">Available for</p>
-              <p className="text-gray-300 mt-2">✔ Internship</p>
-              <p className="text-gray-300">✔ Freelance Projects</p>
-              <p className="text-gray-300">✔ Full Stack Roles</p>
+            {/* Social Links */}
+            <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
+              <h4 className="text-sm font-medium text-slate-500 uppercase tracking-wider mb-4">
+                Connect Online
+              </h4>
+              <div className="flex gap-4">
+                <a
+                  href="https://github.com/Abdullah-Al-Noman186"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-xl bg-white/5 hover:bg-indigo-500/20 border border-white/10 hover:border-indigo-400 transition-all duration-300 flex items-center justify-center text-slate-400 hover:text-indigo-400 hover:scale-105"
+                >
+                  <FaGithub size={20} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/abdullah-al-noman-14a2a73b6/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-xl bg-white/5 hover:bg-indigo-500/20 border border-white/10 hover:border-indigo-400 transition-all duration-300 flex items-center justify-center text-slate-400 hover:text-indigo-400 hover:scale-105"
+                >
+                  <FaLinkedin size={20} />
+                </a>
+              </div>
+            </div>
+
+            {/* Availability */}
+            <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
+              <h4 className="text-sm font-medium text-slate-500 uppercase tracking-wider mb-4">
+                Open For
+              </h4>
+              <div className="space-y-2 text-slate-300">
+                <p className="flex items-center gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  Internship
+                </p>
+                <p className="flex items-center gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  Freelance Projects
+                </p>
+                <p className="flex items-center gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  Full‑Stack Roles
+                </p>
+              </div>
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE FORM */}
-          <motion.form
+          {/* Right Column – Form */}
+          <motion.div
             variants={item}
-            onSubmit={handleSubmit}
-            className="relative rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 shadow-xl space-y-6"
+            className="lg:col-span-7"
           >
-            <h3 className="text-2xl font-bold text-cyan-400 mb-4">
-              Send Message
-            </h3>
-
-            {/* NAME */}
-            <div>
-              <label className="block mb-2 text-gray-300">Full Name</label>
-              <input
-                type="text"
-                name="name"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 focus:border-cyan-500 focus:outline-none transition"
-              />
-            </div>
-
-            {/* EMAIL */}
-            <div>
-              <label className="block mb-2 text-gray-300">Email</label>
-              <input
-                type="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 focus:border-cyan-500 focus:outline-none transition"
-              />
-            </div>
-
-            {/* MESSAGE */}
-            <div>
-              <label className="block mb-2 text-gray-300">Message</label>
-              <textarea
-                rows={6}
-                name="message"
-                required
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 focus:border-cyan-500 focus:outline-none resize-none transition"
-              />
-            </div>
-
-            {/* BUTTON */}
-            <motion.button
-              whileTap={{ scale: 0.97 }}
-              type="submit"
-              disabled={status === "sending"}
-              className="w-full bg-cyan-500 hover:bg-cyan-400 transition py-4 rounded-xl font-semibold"
+            <form
+              onSubmit={handleSubmit}
+              className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 space-y-6"
             >
-              {status === "sending"
-                ? "Sending..."
-                : "Send Message"}
-            </motion.button>
+              <h3 className="text-xl font-semibold text-white mb-2">Send a Message</h3>
+              <p className="text-slate-400 text-sm mb-6">
+                I'll respond within 24 hours.
+              </p>
 
-            {/* SUCCESS */}
-            {status === "success" && (
-              <motion.p
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center text-green-400 font-semibold"
+              {/* Name */}
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="John Doe"
+                  className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-slate-500 focus:border-indigo-400 focus:outline-none transition-colors duration-300"
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="john@example.com"
+                  className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-slate-500 focus:border-indigo-400 focus:outline-none transition-colors duration-300"
+                />
+              </div>
+
+              {/* Message */}
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">
+                  Message
+                </label>
+                <textarea
+                  rows={5}
+                  name="message"
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell me about your project..."
+                  className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-slate-500 focus:border-indigo-400 focus:outline-none resize-none transition-colors duration-300"
+                />
+              </div>
+
+              {/* Submit */}
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                type="submit"
+                disabled={status === "sending"}
+                className="relative w-full overflow-hidden group bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-semibold py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-3"
               >
-                ✅ Message sent successfully!
-              </motion.p>
-            )}
-          </motion.form>
+                <span className="relative z-10">
+                  {status === "sending" ? "Sending..." : "Send Message"}
+                </span>
+                {status !== "sending" && (
+                  <FaPaperPlane className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" size={16} />
+                )}
+                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.button>
 
+              {/* Success */}
+              {status === "success" && (
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-center text-emerald-400 font-medium bg-emerald-500/10 border border-emerald-500/20 rounded-xl py-3"
+                >
+                  ✓ Message sent successfully!
+                </motion.p>
+              )}
+            </form>
+          </motion.div>
         </motion.div>
       </div>
     </section>
