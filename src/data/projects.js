@@ -1,85 +1,73 @@
+// src/data/projects.js
+import {
+  SiReact, SiNextdotjs, SiNodedotjs, SiMongodb, SiExpress,
+  SiTailwindcss, SiTypescript, SiStripe, SiFirebase, SiMongoose, SiJsonwebtokens,
+} from "react-icons/si";
+import { HiOutlineShieldCheck } from "react-icons/hi2";
+
 export const projects = [
   {
     id: 1,
     title: "BLOOD LINK",
+    badge: "Full Stack",
+    badgeColor: "from-red-500 to-pink-500",
     description:
-      "BloodLink is a full-stack MERN blood donation platform that connects blood donors with people in need. It supports donor registration, donation request management, role-based dashboards (Donor, Volunteer, Admin), and a Stripe-powered funding system to support platform operations.",
-
+      "A MERN blood donation platform connecting donors with people in need. Features donor registration, request management, role-based dashboards and Stripe-powered funding.",
     image: "/image.png",
-
     technologies: [
-      "Next.js",
-      "React",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Firebase Authentication",
-      "Tailwind",
-      "JWT",
-      "Stripe",
-
-
+      { name: "Next.js",  icon: SiNextdotjs,  color: "#ffffff" },
+      { name: "React",    icon: SiReact,      color: "#61DAFB" },
+      { name: "Node.js",  icon: SiNodedotjs,  color: "#339933" },
+      { name: "Express",  icon: SiExpress,    color: "#ffffff" },
+      { name: "MongoDB",  icon: SiMongodb,    color: "#47A248" },
+      { name: "Firebase", icon: SiFirebase,   color: "#FFCA28" },
+      { name: "Tailwind", icon: SiTailwindcss,color: "#38BDF8" },
+      { name: "Stripe",   icon: SiStripe,     color: "#635BFF" },
     ],
-
-    liveLink: "https://blood-donation-client-delta.vercel.app/",
-
+    liveLink:   "https://blood-donation-client-delta.vercel.app/",
     githubLink: "https://github.com/Abdullah-Al-Noman186/blood-donation-client",
-
     isUpcoming: false,
   },
-
   {
     id: 2,
-
     title: "STUDYNOOK",
-
+    badge: "Full Stack",
+    badgeColor: "from-cyan-500 to-blue-500",
     description:
-      "StudyNook is a full-stack web application where students and library users can list private study rooms they control and any registered user can browse, search, filter, and book those rooms for a specific date and time slot. The platform automatically prevents double-booking through real-time time-conflict detection, gives room owners full control over their own listings, and provides every user a personal dashboard to manage their bookings — all secured with JWT authentication stored in HTTP-only cookies.",
-
+      "A room-booking platform where users can list and book private study rooms. Features real-time conflict detection, owner dashboards and JWT auth via HTTP-only cookies.",
     image: "/library.png",
-
     technologies: [
-      "Next.js",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Mongoose",
-      "Tailwind",
+      { name: "Next.js",  icon: SiNextdotjs,  color: "#ffffff" },
+      { name: "Node.js",  icon: SiNodedotjs,  color: "#339933" },
+      { name: "Express",  icon: SiExpress,    color: "#ffffff" },
+      { name: "MongoDB",  icon: SiMongodb,    color: "#47A248" },
+      { name: "Mongoose", icon: SiMongoose,   color: "#880000" },
+      { name: "Tailwind", icon: SiTailwindcss,color: "#38BDF8" },
+      { name: "JWT",      icon: HiOutlineShieldCheck, color: "#F7DF1E" },
     ],
-
-    liveLink: "https://studynook-client-delta.vercel.app/",
-
+    liveLink:   "https://studynook-client-delta.vercel.app/",
     githubLink: "https://github.com/Abdullah-Al-Noman186/studynook-client",
-
     isUpcoming: false,
   },
-
-  
   {
-    id: 4,
-
-    title: "LearnHub",
-
+    id: 3,
+    title: "LEARNHUB",
+    badge: "Full Stack",
+    badgeColor: "from-purple-500 to-indigo-500",
     description:
-      "LearnHub is a full-stack MERN online learning platform that allows users to browse, search, and filter courses, view course details, and enroll in courses. It features a secure authentication system with JWT stored in HTTP-only cookies, role-based dashboards for students and instructors, and a Stripe-powered payment system for course enrollment.",
-
+      "An online learning platform with course browsing, search, filtering and enrollment. Role-based dashboards for students and instructors with Stripe-powered payments.",
     image: "/Learnhub.png",
-
     technologies: [
-      "React",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Mongoose",
-      "Tailwind",
-      "TypeScript",
+      { name: "React",      icon: SiReact,      color: "#61DAFB" },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+      { name: "Node.js",    icon: SiNodedotjs,  color: "#339933" },
+      { name: "Express",    icon: SiExpress,    color: "#ffffff" },
+      { name: "MongoDB",    icon: SiMongodb,    color: "#47A248" },
+      { name: "Mongoose",   icon: SiMongoose,   color: "#880000" },
+      { name: "Tailwind",   icon: SiTailwindcss,color: "#38BDF8" },
     ],
-
-    liveLink: "https://learnhub-client-gray.vercel.app/",
-
+    liveLink:   "https://learnhub-client-gray.vercel.app/",
     githubLink: "https://github.com/Abdullah-Al-Noman186/Learnhub-client",
-
     isUpcoming: false,
-  }
-
-]
+  },
+];

@@ -3,7 +3,24 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FiMenu, FiX, FiDownload } from "react-icons/fi";
+import {
+  HiOutlineHome,
+  HiOutlineUser,
+  HiOutlineSparkles,
+  HiOutlineRectangleGroup,
+  HiOutlineAcademicCap,
+  HiOutlinePaperAirplane,
+} from "react-icons/hi2";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+
+const navLinks = [
+  { label: "Home",      icon: HiOutlineHome },
+  { label: "About",     icon: HiOutlineUser },
+  { label: "Skills",    icon: HiOutlineSparkles },
+  { label: "Projects",  icon: HiOutlineRectangleGroup },
+  { label: "Education", icon: HiOutlineAcademicCap },
+  { label: "Contact",   icon: HiOutlinePaperAirplane },
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,47 +28,30 @@ export default function Navbar() {
   const [active, setActive] = useState("home");
 
   const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 20,
-  });
+  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 20 });
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
-
       const sections = ["home", "about", "skills", "projects", "education", "contact"];
       let current = "home";
-
       sections.forEach((id) => {
         const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 120) current = id;
-        }
+        if (el && el.getBoundingClientRect().top <= 120) current = id;
       });
-
       setActive(current);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = ["Home", "About", "Skills", "Projects", "Education", "Contact"];
-
   const linkVariants = {
     hidden: { opacity: 0, y: -10 },
-    show: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.08 },
-    }),
+    show: (i) => ({ opacity: 1, y: 0, transition: { delay: i * 0.08 } }),
   };
 
   return (
     <>
-      {/* Scroll Progress Bar */}
       <motion.div
         style={{ scaleX }}
         className="fixed top-0 left-0 right-0 h-[3px] bg-cyan-400 origin-left z-[60]"
@@ -72,48 +72,38 @@ export default function Navbar() {
 
             {/* Logo */}
             <motion.div whileHover={{ scale: 1.08 }}>
-              <Link
-                href="#home"
-                className="text-2xl font-bold tracking-wide text-white"
-              >
+              <Link href="#home" className="text-2xl font-bold tracking-wide text-white">
                 Noman<span className="text-cyan-400">.</span>
               </Link>
             </motion.div>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8">
-              {navLinks.map((item, i) => {
-                const id = item.toLowerCase();
+            <nav className="hidden md:flex items-center gap-1">
+              {navLinks.map(({ label, icon: Icon }, i) => {
+                const id = label.toLowerCase();
                 const isActive = active === id;
-
                 return (
-                  <motion.div
-                    key={item}
-                    custom={i}
-                    initial="hidden"
-                    animate="show"
-                    variants={linkVariants}
-                  >
+                  <motion.div key={label} custom={i} initial="hidden" animate="show" variants={linkVariants}>
                     <Link
                       href={`#${id}`}
-                      className="relative text-sm font-medium transition"
+                      className={`group relative flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                        isActive
+                          ? "text-cyan-400 bg-cyan-400/10"
+                          : "text-gray-400 hover:text-cyan-300 hover:bg-white/5"
+                      }`}
                     >
-                      <span
-                        className={`transition-colors ${
-                          isActive
-                            ? "text-cyan-400"
-                            : "text-gray-300 hover:text-cyan-300"
+                      <Icon
+                        className={`w-[15px] h-[15px] transition-transform duration-200 group-hover:-translate-y-0.5 ${
+                          isActive ? "text-cyan-400" : "text-gray-500 group-hover:text-cyan-300"
                         }`}
-                      >
-                        {item}
-                      </span>
-
-                      {/* Animated underline */}
-                      <span
-                        className={`absolute left-0 -bottom-1 h-[2px] transition-all duration-300 ${
-                          isActive ? "w-full bg-cyan-400" : "w-0 bg-cyan-400"
-                        } group-hover:w-full`}
                       />
+                      <span>{label}</span>
+                      {isActive && (
+                        <motion.span
+                          layoutId="activeNavDot"
+                          className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-cyan-400"
+                        />
+                      )}
                     </Link>
                   </motion.div>
                 );
@@ -157,33 +147,47 @@ export default function Navbar() {
                 className="md:hidden overflow-hidden"
               >
                 <div className="mt-3 rounded-2xl border border-white/10 bg-slate-900/95 backdrop-blur-2xl p-6 shadow-2xl">
-                  <div className="flex flex-col space-y-5">
-                    {navLinks.map((item, i) => (
-                      <motion.div
-                        key={item}
-                        initial={{ x: -15, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ delay: i * 0.05 }}
-                      >
-                        <Link
-                          href={`#${item.toLowerCase()}`}
-                          onClick={() => setIsOpen(false)}
-                          className="text-gray-300 text-lg hover:text-cyan-400 transition"
+                  <div className="flex flex-col space-y-1">
+                    {navLinks.map(({ label, icon: Icon }, i) => {
+                      const id = label.toLowerCase();
+                      const isActive = active === id;
+                      return (
+                        <motion.div
+                          key={label}
+                          initial={{ x: -15, opacity: 0 }}
+                          animate={{ x: 0, opacity: 1 }}
+                          transition={{ delay: i * 0.05 }}
                         >
-                          {item}
-                        </Link>
-                      </motion.div>
-                    ))}
+                          <Link
+                            href={`#${id}`}
+                            onClick={() => setIsOpen(false)}
+                            className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
+                              isActive
+                                ? "bg-cyan-400/10 text-cyan-400"
+                                : "text-gray-300 hover:bg-white/5 hover:text-cyan-300"
+                            }`}
+                          >
+                            <Icon className={`w-5 h-5 ${isActive ? "text-cyan-400" : "text-gray-500"}`} />
+                            <span className="text-base font-medium">{label}</span>
+                            {isActive && (
+                              <span className="ml-auto w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                            )}
+                          </Link>
+                        </motion.div>
+                      );
+                    })}
 
-                    <motion.a
-                      whileTap={{ scale: 0.95 }}
-                      href="/resume.pdf"
-                      target="_blank"
-                      className="flex items-center justify-center gap-2 rounded-xl bg-cyan-500 py-3 font-semibold text-white hover:bg-cyan-400 transition"
-                    >
-                      <FiDownload />
-                      Download Resume
-                    </motion.a>
+                    <div className="pt-3 mt-2 border-t border-white/10">
+                      <motion.a
+                        whileTap={{ scale: 0.95 }}
+                        href="/resume.pdf"
+                        target="_blank"
+                        className="flex items-center justify-center gap-2 rounded-xl bg-cyan-500 py-3 font-semibold text-white hover:bg-cyan-400 transition"
+                      >
+                        <FiDownload />
+                        Download Resume
+                      </motion.a>
+                    </div>
                   </div>
                 </div>
               </motion.div>
