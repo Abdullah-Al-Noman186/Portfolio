@@ -22,11 +22,11 @@ const item = {
 };
 
 const facts = [
-  { label: "Role",     value: "Full Stack Developer",          icon: FaUser },
-  { label: "Frontend", value: "React • Next.js • Tailwind",    icon: FaCode },
-  { label: "Backend",  value: "Node.js • Express.js",          icon: FaServer },
-  { label: "Database", value: "MongoDB • Mongoose",            icon: FaDatabase },
-  { label: "Auth",     value: "BetterAuth",                    icon: FaTools },
+  { label: "Role",     value: "Full Stack Developer",               icon: FaUser },
+  { label: "Frontend", value: "React • Next.js • Tailwind",         icon: FaCode },
+  { label: "Backend",  value: "Node.js • Express.js",               icon: FaServer },
+  { label: "Database", value: "MongoDB • Mongoose",                 icon: FaDatabase },
+  { label: "Auth",     value: "BetterAuth",                         icon: FaTools },
   { label: "Projects", value: "Blood Donation • Library • Booking", icon: FaRocket },
 ];
 
@@ -37,12 +37,12 @@ const skillCategories = [
     border: "border-cyan-500/20",
     bg: "bg-cyan-500/10",
     skills: [
-      { label: "React",      icon: SiReact,           color: "text-cyan-400" },
-      { label: "Next.js",    icon: SiNextdotjs,        color: "text-white" },
-      { label: "JavaScript", icon: SiJavascript,       color: "text-yellow-400" },
-      { label: "TypeScript", icon: SiTypescript,       color: "text-blue-400" },
-      { label: "Tailwind",   icon: SiTailwindcss,      color: "text-cyan-300" },
-      { label: "Framer",     icon: TbBrandFramerMotion,color: "text-pink-400" },
+      { label: "React",      icon: SiReact,            color: "text-cyan-400" },
+      { label: "Next.js",    icon: SiNextdotjs,         color: "text-white" },
+      { label: "JavaScript", icon: SiJavascript,        color: "text-yellow-400" },
+      { label: "TypeScript", icon: SiTypescript,        color: "text-blue-400" },
+      { label: "Tailwind",   icon: SiTailwindcss,       color: "text-cyan-300" },
+      { label: "Framer",     icon: TbBrandFramerMotion, color: "text-pink-400" },
     ],
   },
   {
@@ -63,8 +63,8 @@ const skillCategories = [
     border: "border-purple-500/20",
     bg: "bg-purple-500/10",
     skills: [
-      { label: "GitHub",   icon: SiGithub,        color: "text-white" },
-      { label: "AI Dev",   icon: HiOutlineSparkles, color: "text-purple-400" },
+      { label: "GitHub", icon: SiGithub,          color: "text-white" },
+      { label: "AI Dev", icon: HiOutlineSparkles, color: "text-purple-400" },
     ],
   },
 ];
@@ -120,17 +120,17 @@ export default function About() {
             <p className="text-slate-300 text-lg leading-relaxed">
               {"Hi, I'm "}
               <span className="text-indigo-400 font-semibold">Abdullah Al Noman</span>
-              , a passionate Full Stack Developer focused on building modern, scalable, and responsive web applications with clean code and exceptional user experiences.
+              {" — a Full Stack Developer from Bangladesh. My journey into programming started out of pure curiosity: I wanted to understand how websites actually worked under the hood. That curiosity quickly turned into a passion, and I haven't stopped building since."}
             </p>
             <p className="text-slate-300 text-lg leading-relaxed">
-              I work with{" "}
-              <span className="text-white font-medium">React, Next.js, JavaScript, Node.js, Express.js, MongoDB</span>
-              {" "}to build full-stack applications, secure APIs, and modern UI systems.
+              I love working on{" "}
+              <span className="text-white font-medium">full stack web applications</span>
+              {" — everything from designing clean, responsive UIs with React and Next.js, to building secure REST APIs with Node.js, Express, and MongoDB. I genuinely enjoy the problem-solving side of development: debugging a tricky backend issue or optimizing a slow query gives me the same satisfaction as shipping a polished UI."}
             </p>
             <p className="text-slate-300 text-lg leading-relaxed">
-              I also use{" "}
-              <span className="text-white font-medium">AI-assisted development</span>
-              {" "}and modern workflows to improve performance, maintainability, and delivery speed.
+              Outside of coding, I enjoy{" "}
+              <span className="text-white font-medium">cricket, watching football</span>
+              {", and exploring how AI tools are reshaping the way we build software. I'm currently pursuing a BSc in Fisheries at Patuakhali Science and Technology University — which keeps me sharp in both analytical thinking and technical execution."}
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -140,7 +140,7 @@ export default function About() {
               </div>
               <div className="flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full px-4 py-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span className="text-sm text-slate-300">2+ projects shipped</span>
+                <span className="text-sm text-slate-300">5+ projects shipped</span>
               </div>
             </div>
           </motion.div>
@@ -176,7 +176,7 @@ export default function About() {
           </motion.div>
         </motion.div>
 
-        {/* Skills with icons */}
+        {/* Tech Stack */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -201,7 +201,7 @@ export default function About() {
                 viewport={{ once: true }}
                 className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6"
               >
-                <div className={`flex items-center gap-2 mb-5`}>
+                <div className="flex items-center gap-2 mb-5">
                   <div className={`w-2 h-2 rounded-full ${cat.color.replace("text-", "bg-")}`} />
                   <h4 className={`text-sm font-semibold uppercase tracking-wider ${cat.color}`}>
                     {cat.name}

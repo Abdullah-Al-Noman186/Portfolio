@@ -18,6 +18,7 @@ const navLinks = [
   { label: "About",     icon: HiOutlineUser },
   { label: "Skills",    icon: HiOutlineSparkles },
   { label: "Projects",  icon: HiOutlineRectangleGroup },
+  
   { label: "Education", icon: HiOutlineAcademicCap },
   { label: "Contact",   icon: HiOutlinePaperAirplane },
 ];
