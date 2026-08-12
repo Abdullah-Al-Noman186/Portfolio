@@ -114,7 +114,7 @@ export default function Navbar() {
             {/* Resume Button */}
             <motion.div whileHover={{ scale: 1.05 }} className="hidden md:flex">
               <a
-                href="/resume.pdf"
+                href="/Resume.pdf"
                 target="_blank"
                 className="group relative inline-flex items-center gap-2 rounded-full bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg overflow-hidden"
               >

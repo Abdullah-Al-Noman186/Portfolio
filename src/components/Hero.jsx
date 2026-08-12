@@ -64,7 +64,7 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="mt-4 text-gray-400 text-base leading-7 max-w-xl"
             >
-              Full Stack Developer specializing in React, Next.js, Node.js and MongoDB.
+              Front-end Developer specializing in React, Next.js, Node.js and MongoDB.
               Fast, scalable apps with clean architecture and AI-assisted workflows.
             </motion.p>
 
@@ -99,7 +99,7 @@ export default function Hero() {
                 <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition" />
               </a>
 
-              <a href="/resume.pdf" className="flex items-center gap-2 border border-cyan-500/50 hover:border-cyan-400 hover:bg-cyan-500/10 transition px-7 py-3.5 rounded-xl font-semibold text-gray-300 hover:text-white">
+              <a href="/Resume.pdf" className="flex items-center gap-2 border border-cyan-500/50 hover:border-cyan-400 hover:bg-cyan-500/10 transition px-7 py-3.5 rounded-xl font-semibold text-gray-300 hover:text-white">
                 <HiOutlineDocumentDownload className="w-5 h-5" />
                 Resume
               </a>

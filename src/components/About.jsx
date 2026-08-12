@@ -22,8 +22,8 @@ const item = {
 };
 
 const facts = [
-  { label: "Role",     value: "Full Stack Developer",               icon: FaUser },
-  { label: "Frontend", value: "React • Next.js • Tailwind",         icon: FaCode },
+  { label: "Role",     value: "Front-end Developer",               icon: FaUser },
+  { label: "Frontend", value: "React • Next.js • Tailwind CSS • TypeScript",         icon: FaCode },
   { label: "Backend",  value: "Node.js • Express.js",               icon: FaServer },
   { label: "Database", value: "MongoDB • Mongoose",                 icon: FaDatabase },
   { label: "Auth",     value: "BetterAuth",                         icon: FaTools },
@@ -99,7 +99,7 @@ export default function About() {
           <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
             Passionate{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              Full Stack Developer
+              Front-end Developer
             </span>
           </h2>
           <p className="text-slate-400 max-w-xl mt-4 text-lg leading-relaxed">
@@ -120,11 +120,11 @@ export default function About() {
             <p className="text-slate-300 text-lg leading-relaxed">
               {"Hi, I'm "}
               <span className="text-indigo-400 font-semibold">Abdullah Al Noman</span>
-              {" — a Full Stack Developer from Bangladesh. My journey into programming started out of pure curiosity: I wanted to understand how websites actually worked under the hood. That curiosity quickly turned into a passion, and I haven't stopped building since."}
+              {" — a Front-end Developer from Bangladesh. My journey into programming started out of pure curiosity: I wanted to understand how websites actually worked under the hood. That curiosity quickly turned into a passion, and I haven't stopped building since."}
             </p>
             <p className="text-slate-300 text-lg leading-relaxed">
               I love working on{" "}
-              <span className="text-white font-medium">full stack web applications</span>
+              <span className="text-white font-medium">front-end web applications</span>
               {" — everything from designing clean, responsive UIs with React and Next.js, to building secure REST APIs with Node.js, Express, and MongoDB. I genuinely enjoy the problem-solving side of development: debugging a tricky backend issue or optimizing a slow query gives me the same satisfaction as shipping a polished UI."}
             </p>
             <p className="text-slate-300 text-lg leading-relaxed">
