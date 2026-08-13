@@ -143,14 +143,14 @@ export default function HeroImage() {
 
               {/* Code Overlay Badge */}
               <div className="absolute top-4 left-4 z-10 px-3 py-1.5 rounded-lg border border-white/10 bg-black/60 backdrop-blur-md text-[11px] font-mono text-indigo-300">
-                <span className="text-purple-400">const</span> developer = <span className="text-emerald-400">&quot;Front-end&quot;</span>;
+                <span className="text-purple-400">const</span> developer = <span className="text-emerald-400">&quot;Full-Stack&quot;</span>;
               </div>
 
               {/* Bottom Card Profile Info */}
               <div className="absolute bottom-6 left-6 right-6 z-10 flex items-end justify-between">
                 <div>
                   <p className="text-xs uppercase font-mono tracking-widest text-indigo-400 font-semibold mb-1">
-                    Front-end Developer | MERN Stack
+                    Full-Stack Developer | MERN 
                   </p>
                   <h3 className="text-xl font-bold text-white tracking-tight">
                     Abdullah Al Noman

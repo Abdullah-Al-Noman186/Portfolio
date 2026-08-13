@@ -44,7 +44,7 @@ export default function Footer() {
               Noman<span className="text-cyan-400">.</span>
             </a>
             <p className="text-gray-400 mt-4 leading-7 text-sm">
-              Front-end Developer building modern, scalable and high-performance
+              Full-stack Developer building modern, scalable and high-performance
               web applications with clean UI and strong backend systems.
             </p>
             <div className="flex gap-3 mt-6">

@@ -55,7 +55,7 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="mt-5 text-xl text-gray-300 font-semibold"
             >
-              Building Modern and Scalable Web Applications
+              Full-Stack Developer
             </motion.h2>
 
             <motion.p
@@ -64,7 +64,7 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="mt-4 text-gray-400 text-base leading-7 max-w-xl"
             >
-              Front-end Developer specializing in React, Next.js, Node.js and MongoDB.
+              Full-Stack Developer specializing in React, Next.js, Node.js and MongoDB.
               Fast, scalable apps with clean architecture and AI-assisted workflows.
             </motion.p>
 
